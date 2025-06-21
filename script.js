@@ -49,3 +49,12 @@ function botreply(input){
      
    },500)
 }
+const optionBtns = document.querySelectorAll(".option");
+
+optionBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const text = btn.innerText;
+    addmessage("user", text);
+    botreply(text);
+  });
+});
