@@ -1,60 +1,51 @@
+const chatBox = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
-const btn = document.getElementById("send-btn");
-const chatbox = document.getElementById("chat-box");
-
-btn.addEventListener("click",()=> {
-  
-  const input = userInput.value.trim();
-  if (input !== "") {
-    addmessage("user",input);
-    botreply(input)
-    userInput.value = "";
-  }
-}  )
-function addmessage(sender,text){
-  const message = document.createElement("div");
-  message.classList.add("message",sender)
-  message.innerText = text ;
-  chatbox.appendChild(message)
-   chatbox.scrollTop = chatbox.scrollHeight ;
-  
-}
-function botreply(input){
-  let response = ""; 
-   const lowercase = input.toLowerCase()
-   if (lowercase.includes("hi")||lowercase.includes("hello")  ) {
-     response = "yes sir , how are you ?"
-   }else if (lowercase.includes("fine") ) {
-     response = `ok.
-     
-     sir which Programming langauge you are learning now 🤔??
-     `
-   }else if(lowercase.includes("javascript")  ){
-     response = "nice sir. keep learning.🤗"
-   }else if(lowercase.includes("thank you")  ){
-     response = "welcome!"
-   }else if(lowercase.includes("bye")  ){
-     response = "Goodbye! Have a nice day"
-   }
-   
-   else{
-     response = "Sorry I didn't understand that."
-   }
-   
-   
-   
-   
-   setTimeout(()=> {
-     addmessage("bot",response )
-     
-   },500)
-}
+const sendBtn = document.getElementById("send-btn");
 const optionBtns = document.querySelectorAll(".option");
 
+sendBtn.addEventListener("click", () => {
+  const input = userInput.value.trim();
+  if (input !== "") {
+    addMessage("user", input);
+    botReply(input);
+    userInput.value = "";
+  }
+});
+
+// Suggestion buttons
 optionBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     const text = btn.innerText;
-    addmessage("user", text);
-    botreply(text);
+    addMessage("user", text);
+    botReply(text);
   });
 });
+
+function addMessage(sender, text) {
+  const message = document.createElement("div");
+  message.classList.add("message", sender);
+  message.innerText = text;
+  chatBox.appendChild(message);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function botReply(input) {
+  let response = "";
+  const lowerInput = input.toLowerCase();
+
+  if (lowerInput.includes("hi") || lowerInput.includes("hello")) {
+    response = "Hello! How can I help you?";
+  } else if (lowerInput.includes("how are you")) {
+    response = "I'm just a bot, but I'm good!";
+  } else if (lowerInput.includes("your name")) {
+    response = "I'm ChatBot v1 🤖";
+  } else if (lowerInput.includes("bye")) {
+    response = "Goodbye! Have a great day!";
+  } else {
+    response = "Sorry, I didn’t understand that.";
+  }
+
+  setTimeout(() => {
+    addMessage("bot", response);
+  }, 500);
+}
