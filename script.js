@@ -34,11 +34,11 @@ function botReply(input) {
   const lowerInput = input.toLowerCase();
 
   if (lowerInput.includes("hi") || lowerInput.includes("hello")) {
-    response = "Hello! How can I help you?";
-  } else if (lowerInput.includes("how are you")) {
-    response = "I'm just a bot, but I'm good!";
-  } else if (lowerInput.includes("your name")) {
-    response = "I'm ChatBot v1 🤖";
+    response = "Hello! How are you bro ?";
+  } else if (lowerInput.includes("fine")) {
+    response = "ok bro. sir which programming langauge you are learning now?";
+  } else if (lowerInput.includes("javascript")) {
+    response = "nice bro !! keep learning";
   } else if (lowerInput.includes("bye")) {
     response = "Goodbye! Have a great day!";
   } else {
