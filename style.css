@@ -75,6 +75,7 @@ h2{
   font-family: monospace;
 }
 .suggestions {
+  color: black;
   padding: 10px;
   border-top: 1px solid #ccc;
   display: flex;
@@ -84,6 +85,7 @@ h2{
 }
 
 .option {
+  color: black;
   background: #e0e0e0;
   border: none;
   padding: 6px 10px;
